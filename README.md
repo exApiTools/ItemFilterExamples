@@ -7,6 +7,8 @@ To ensure consistency and maintain the integrity of the repository, we have spec
 
 2. **Code Testing**: All submitted code, especially for complex filters, must be thoroughly tested to ensure it works as intended. Untested code will not be merged into the repository.
 
+3. **Pull Requests**: Once a Pull Request is created, please notify the Devs that there is an outstanding PR to look at.
+
 ### File Header Template
 
 Use the following header template in all files to comply with the repository's standards. The 'Version History' and 'Contributors' fields are optional and can be included as needed:
