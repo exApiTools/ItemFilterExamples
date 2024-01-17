@@ -1,0 +1,13 @@
+/* 
+ * Owner: exApiTools
+ */
+
+//----------------------------------------------
+// Skill Gems
+//----------------------------------------------
+
+ClassName.Contains("Skill Gem") && ItemQuality >= 1 // quality gem
+
+ClassName.Contains("Skill Gem") && GemInfo.Level >= 20 // level 20+
+
+//ClassName.Contains("Skill Gem") && ItemQuality == 0 // non quality gem

@@ -1,0 +1,149 @@
+/* 
+ * Owner: mikkelpetersen
+ *
+ * Description:
+ *    Filtering items in different acts based on the characters level.
+ */
+
+// Armour and Jewellery (except Boots).
+//==============================================
+(
+  !HasTag("Boot") &&
+  (
+    PlayerInfo.Level <= 13 && // Act 1
+    (
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 10,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 6,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 6,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 6,
+      }.Count(X => X) >= 2
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 23 && // Act 2
+    (
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 20,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 12,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 12,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 12,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 5,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 3
+      }.Count(X => X) >= 2
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 45 && // Act 3 - 5
+    (
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 18,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 18,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 18,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 5,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 6
+      }.Count(X => X) >= (AreaInfo.Act <= 4 ? 2 : 3)
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 60 && // Act 6 - 8
+    (
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 40,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 24,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 24,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 24,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 16,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 9
+      }.Count(X => X) >= 3
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 67  && // Act 9 - 10
+    (
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 50,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 21,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 12
+      }.Count(X => X) >= 3
+    )
+  )
+)
+
+// Boots
+//==============================================
+(
+  HasTag("Boot") &&
+  (
+    PlayerInfo.Level <= 13 && // Act 1
+    (
+      GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMovementVelocityPct] >= 10 &&
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 10,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 6,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 6,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 6,
+      }.Count(X => X) >= 1
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 23 && // Act 2
+    (
+      GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMovementVelocityPct] >= 10 &&
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 20,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 12,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 12,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 12,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 5,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 3
+      }.Count(X => X) >= 1
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 45 && // Act 3 - 5
+    (
+      GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMovementVelocityPct] >= 15 &&
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 18,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 18,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 18,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 5,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 6
+      }.Count(X => X) >= (AreaInfo.Act <= 4 ? 1 : 2)
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 60 && // Act 6 - 8
+    (
+      GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMovementVelocityPct] >= 15 &&
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 40,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 24,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 24,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 24,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 16,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 9
+      }.Count(X => X) >= 2
+    )
+  ) ||
+  (
+    PlayerInfo.Level <= 67  && // Act 9 - 10
+    (
+      GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMovementVelocityPct] >= 20 &&
+      new bool[] {
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseMaximumLife] >= 50,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseFireDamageResistancePct] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseColdDamageResistancePct] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseLightningDamageResistancePct] >= 30,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseChaosDamageResistancePct] >= 21,
+        GetItemStats(ModsInfo.ExplicitMods)[GameStat.BaseResistAllElementsPct] >= 12
+      }.Count(X => X) >= 2
+    )
+  )
+)
