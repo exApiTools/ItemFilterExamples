@@ -1,0 +1,40 @@
+/* 
+ * Owner: LiQuid.Ace
+ *
+ * Description:
+ *    Arma Brand fast Leveling for ground items
+ */
+
+PlayerInfo.Level <= 20 && ItemStats[GameStat.BaseMovementVelocityPct]>=10
+
+AreaInfo.Act == 1 && ItemStats[GameStat.BaseColdDamageResistancePct] >= 20
+
+AreaInfo.Act <= 2 && BaseName == "Iron Ring"
+
+AreaInfo.Act <= 2 && ItemStats[GameStat.BaseLightningDamageResistancePct] >= 20
+
+AreaInfo.Act == 1 && HasUnorderedSocketGroup("BBB") && (!IsWeapon && !HasTag("shield"))
+
+AreaInfo.Act == 1 && HasUnorderedSocketGroup("BBG") && (!IsWeapon && !HasTag("shield"))
+
+AreaInfo.Act == 1 && HasUnorderedSocketGroup("BB") && (!IsWeapon && !HasTag("shield"))
+
+AreaInfo.Act == 1 && HasUnorderedSocketGroup("BBBB") && (!IsWeapon && !HasTag("shield"))
+
+AreaInfo.Act == 1 && HasUnorderedSocketGroup("RRB") && (!IsWeapon && !HasTag("shield"))
+
+HasUnorderedSocketGroup("BBBB") && (!IsWeapon && !HasTag("shield"))
+
+HasUnorderedSocketGroup("BBBR") && (!IsWeapon && !HasTag("shield"))
+
+AreaInfo.Act == 1 && IsWeapon && HasTag("one_hand_weapon") && 
+(
+	(HasUnorderedSocketGroup("RG") && AttackSpeed.Base >= 1.30) || 
+	(HasSockets("R") && AttackSpeed.Base >= 1.45)
+)
+
+AreaInfo.Act == 1 && BaseName == "Goat's Horn" && 
+(
+	ItemStats[GameStat.SpellAndAttackMinimumAddedFireDamage] >= 1 && 
+	ItemStats[GameStat.SpellAndAttackMaximumAddedFireDamage] == 4
+)

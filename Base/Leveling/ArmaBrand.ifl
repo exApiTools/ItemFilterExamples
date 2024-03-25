@@ -1,0 +1,45 @@
+/* 
+ * Owner: LiQuid.Ace
+ *
+ * Description:
+ *    Arma Brand fast Leveling
+ */
+
+ItemStats[GameStat.BaseMovementVelocityPct]>=10
+
+//Buy
+GemInfo != null && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 1 && BaseName == "Flame Wall"
+
+GemInfo != null && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 1 && BaseName == "War Banner"
+
+GemInfo != null && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 2 && BaseName == "Herald of Thunder"
+
+GemInfo != null && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 3 && BaseName == "Cremation"
+
+GemInfo != null && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 2 && BaseName == "Desecrate"
+
+GemInfo != null && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 3 && BaseName == "Anger"
+
+GemInfo != null && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 3 && BaseName == "Fire Penetration Support"
+
+//Rewards
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && BaseName == "Rolling Magma"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && BaseName == "Arcane Surge Support"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && BaseName == "Frostblink"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && BaseName == "Leap Slam"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && BaseName == "Holy Flame Totem"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && BaseName == "Combustion Support"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 2 && BaseName == "Herald of Ice"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 2 && BaseName == "Concentrated Effect Support"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 2 && BaseName == "Flammability"
+
+GemInfo != null && GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 3 && BaseName == "Armageddon Brand"
+
