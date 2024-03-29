@@ -1,0 +1,113 @@
+/* 
+ * Owner: Author
+ * Modified By: arturino009
+ *
+ * Description:
+ *    CoC DD Leveling (Trader + Inventory)
+ */
+
+// Generic Leveling Items
+// ======================
+
+AreaInfo.Act <= 2 && ItemStats[GameStat.BaseMovementVelocityPct] >= 10
+
+AreaInfo.Act <= 3 && ItemStats[GameStat.BaseMovementVelocityPct] >= 15
+
+AreaInfo.Act <= 5 && ItemStats[GameStat.BaseMovementVelocityPct] >= 20
+
+AreaInfo.Act <= 5 && SocketInfo.LargestLinkSize >= 4
+
+SocketInfo.LargestLinkSize >= 5
+
+// Sockets
+// =======
+
+// Look for any 2-link in first vendors
+PlayerInfo.Level <= 2 && (!IsWeapon || HasTag("Wand")) && !HasTag("Shield") && HasUnorderedSocketGroup("BB") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("BB"))
+
+// Look for any non-weapon BBB
+AreaInfo.Act <= 2 && !IsWeapon && !HasTag("Shield") && HasUnorderedSocketGroup("BBB")
+
+// Look for BBB wand if no BBB at all
+AreaInfo.Act <= 2 && IsWeapon && HasTag("Wand") && HasUnorderedSocketGroup("BBB") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("BBB"))
+
+// Look for RG axes or swords if you dont have one already
+AreaInfo.Act <= 2 && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))) && HasUnorderedSocketGroup("RG") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("RG") && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))))
+
+// Look for RGG axes or swords if you dont have one already
+AreaInfo.Act <= 2 && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))) && HasUnorderedSocketGroup("RGG") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("RGG") && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))))
+
+AreaInfo.Act <= 5 && !IsWeapon && !HasTag("Shield") && (HasUnorderedSocketGroup("BBBB") || HasUnorderedSocketGroup("BBBR") || HasUnorderedSocketGroup("BBGG") || HasUnorderedSocketGroup("BGGR"))
+
+// Quest Rewards
+// =============
+
+// Act 1
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Caustic Arrow" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Rolling Magma" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+Kind == 0 && AreaInfo.Act == 1 && Name == "Quicksilver Flask"
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Flame Wall" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Frostblink" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Arcane Surge Support" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Combustion Support" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Leap Slam" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 1 && Name == "Absolution" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+// Act 2
+
+Kind == 0 && AreaInfo.Act == 2 && Name == "Quicksilver Flask"
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 2 && Name == "Herald of Ash" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 2 && Name == "Elemental Focus Support" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+// Act 3
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 3 && Name == "Flammability" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 0 && AreaInfo.Act == 3 && Name == "Armageddon Brand" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+// Vendor
+// ======
+
+// Act 1
+
+GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 1 && Name == "Holy Flame Totem" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 1 && Name == "War Banner" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+// Look for Goat Horns if there are less than 2 in inventory
+AreaInfo.Act == 1 && IsWeapon && Name == "Goat's Horn" && PlayerInfo.OwnedItems.Count($.BaseName==~.BaseName) < 2
+
+// Act 2
+
+GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 2 && Name == "Wave of Conviction" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+// Act 2 - Armageddon Brand Swap
+
+PlayerInfo.Level > 27 && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 2 && Name == "Desecrate" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+PlayerInfo.Level > 27 && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 2 && Name == "Cruelty Support"
+
+PlayerInfo.Level > 27 && GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 2 && Name == "Concentrated Effect Support"
+
+// Act 3
+
+GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 3 && ContainsString(BaseName, new[] { "Anger", "Determination", "Haste" }) && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 3 && Name == "Cremation" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+// Act 3 - A Fixture of Fate
+
+GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 3 && Name == "Lesser Multiple Projectiles Support" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)
+
+GemInfo.IsGem && Kind == 1 && AreaInfo.Act == 3 && Name == "Faster Attacks Support" && !PlayerInfo.OwnedGems.Any($.BaseName==~.BaseName)

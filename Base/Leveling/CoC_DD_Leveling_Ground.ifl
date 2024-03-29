@@ -1,0 +1,40 @@
+/* 
+ * Author: Mikkel
+ * Modified By: arturino009
+ *
+ * Description:
+ *    CoC DD Leveling (Ground Items)
+ */
+
+// Generic Leveling Items
+// ======================
+
+AreaInfo.Act <= 2 && ItemStats[GameStat.BaseMovementVelocityPct] >= 10
+
+AreaInfo.Act <= 3 && ItemStats[GameStat.BaseMovementVelocityPct] >= 15
+
+AreaInfo.Act <= 5 && ItemStats[GameStat.BaseMovementVelocityPct] >= 20
+
+AreaInfo.Act <= 5 && SocketInfo.LargestLinkSize >= 4
+
+SocketInfo.LargestLinkSize >= 5
+
+// Sockets
+// =======
+
+// Look for any 2-link in first vendors
+PlayerInfo.Level <= 2 && (!IsWeapon || HasTag("Wand")) && !HasTag("Shield") && HasUnorderedSocketGroup("BB") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("BB"))
+
+// Look for any non-weapon BBB
+AreaInfo.Act <= 2 && !IsWeapon && !HasTag("Shield") && HasUnorderedSocketGroup("BBB")
+
+// Look for BBB wand if no BBB at all
+AreaInfo.Act <= 2 && IsWeapon && HasTag("Wand") && HasUnorderedSocketGroup("BBB") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("BBB"))
+
+// Look for RG axes or swords if you dont have one already
+AreaInfo.Act <= 2 && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))) && HasUnorderedSocketGroup("RG") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("RG") && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))))
+
+// Look for RGG axes or swords if you dont have one already
+AreaInfo.Act <= 2 && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))) && HasUnorderedSocketGroup("RGG") && !PlayerInfo.OwnedItems.Any(HasUnorderedSocketGroup("RGG") && (HasTag("One_Hand_Axe") || (HasTag("One_Hand_Sword") || HasTag("One_Hand_Thrusting_Sword"))))
+
+AreaInfo.Act <= 5 && !IsWeapon && !HasTag("Shield") && (HasUnorderedSocketGroup("BBBB") || HasUnorderedSocketGroup("BBBR") || HasUnorderedSocketGroup("BBGG") || HasUnorderedSocketGroup("BGGR"))
