@@ -1,9 +1,9 @@
-/* 
- * Owner: LiQuid.Ace
- *
- * Description:
- *    Arma Brand fast Leveling
- */
+// 
+// Owner: LiQuid.Ace
+//
+// Description:
+//    Arma Brand fast Leveling
+//
 
 ItemStats[GameStat.BaseMovementVelocityPct]>=10
 

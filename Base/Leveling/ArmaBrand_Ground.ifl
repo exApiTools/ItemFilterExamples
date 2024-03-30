@@ -1,9 +1,9 @@
-/* 
- * Owner: LiQuid.Ace
- *
- * Description:
- *    Arma Brand fast Leveling for ground items
- */
+// 
+// Owner: LiQuid.Ace
+//
+// Description:
+//    Arma Brand fast Leveling for ground items
+//
 
 PlayerInfo.Level <= 20 && ItemStats[GameStat.BaseMovementVelocityPct]>=10
 

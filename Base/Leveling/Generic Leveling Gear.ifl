@@ -1,9 +1,9 @@
-/* 
- * Owner: mikkelpetersen
- *
- * Description:
- *    Filtering items in different acts based on the characters level.
- */
+// 
+// Owner: mikkelpetersen
+//
+// Description:
+//    Filtering items in different acts based on the characters level.
+//
 
 // Armour and Jewellery (except Boots).
 //==============================================
