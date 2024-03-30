@@ -5,6 +5,9 @@
 // Description:
 //    CoC DD Leveling (Trader + Inventory)
 //
+// Note:
+//	  (.Kind) is only availible in NPC linq as it is based on reward window.
+//
 
 // Generic Leveling Items
 // ======================
