@@ -5,23 +5,26 @@
 //----------------------------------------------
 // All Currency
 //----------------------------------------------
-
- (
- 	(
- 		AreaInfo.Act <= 7 // Act 1-7
- 		|| // OR
- 		StackInfo.Count > 3 // stack size is over 3
- 	)
+(
+	(
+		AreaInfo.Act <= 7 // Act 1-7
+		|| // OR
+		(
+			AreaInfo.Level <= 70 // Area level is 67 or lower
+			&& // AND
+			StackInfo.Count > 3 // stack size is over 3
+		)
+	)
 	&& 
 	(
 		ClassName.EndsWith("Currency") // is a currency
 		&& 
 		(BaseName == "Armourer's Scrap" || BaseName == "Blacksmith's Whetstone" || BaseName == "Orb of Augmentation" || BaseName == "Orb of Transmutation" || BaseName == "Portal Scroll" || BaseName == "Scroll of Wisdom") // And is any of these
 	)
- )
- ||
- (
+)
+||
+(
 	ClassName.EndsWith("Currency") // is a currency
 	&& 
 	(BaseName != "Armourer's Scrap" && BaseName != "Blacksmith's Whetstone" && BaseName != "Orb of Augmentation" && BaseName != "Orb of Transmutation" && BaseName != "Portal Scroll" && BaseName != "Scroll of Wisdom") // but is none of these
- )
+)
